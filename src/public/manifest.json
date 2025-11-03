@@ -37,7 +37,7 @@
       "name": "Add New Story",
       "short_name": "Add Story",
       "description": "Post a new story to Sweet Trails",
-      "url": "/#/add",
+      "url": "#/add",
       "icons": [{ "src": "icons/icon-192x192.png", "sizes": "192x192" }]
     }
   ]
