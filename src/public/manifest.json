@@ -1,0 +1,44 @@
+{
+  "name": "Sweet Trails",
+  "short_name": "Sweet Trails",
+  "description": "Share your sweet story trails in memorable places.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffecf1",
+  "theme_color": "#f8b0c7",
+  "icons": [
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/screenshot-wide.png",
+      "type": "image/png",
+      "sizes": "1919x873",
+      "form_factor": "wide"
+    },
+    {
+      "src": "images/screenshot-narrow.png",
+      "type": "image/png",
+      "sizes": "325x734",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Add New Story",
+      "short_name": "Add Story",
+      "description": "Post a new story to Sweet Trails",
+      "url": "/#/add",
+      "icons": [{ "src": "icons/icon-192x192.png", "sizes": "192x192" }]
+    }
+  ]
+}
