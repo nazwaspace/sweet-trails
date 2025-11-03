@@ -9,7 +9,7 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: 'auto',
+    publicPath: '/sweet-trails/',
     clean: true,
   },
   module: {
