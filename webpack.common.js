@@ -9,7 +9,9 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/sweet-trails/',
+    publicPath: process.env.NODE_ENV === 'production'
+    ? '/sweet-trails/'
+    : '/',
     clean: true,
   },
   module: {
