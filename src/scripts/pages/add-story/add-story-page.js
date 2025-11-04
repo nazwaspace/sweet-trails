@@ -37,13 +37,9 @@ export default class AddStoryPage {
                     </div>
 
                     <div class="form-group">
-                        <label for="location-map">Location (Click on the Map)</label>
-                        <div id="location-map"></div>
-
-                        <label for="latitude" class="sr-only">Latitude</label>
+                        <h2 id="location-label">Location (Click on the Map)</h2>
+                        <div id="location-map" role="application" aria-labelledby="location-label" tabindex="0"></div>
                         <input type="hidden" id="latitude" readonly>
-
-                        <label for="longitude" class="sr-only">Longitude</label>
                         <input type="hidden" id="longitude" readonly>
                         <p id="location-display">Location has not been selected</p>
                     </div>
