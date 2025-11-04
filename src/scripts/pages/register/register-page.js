@@ -8,7 +8,7 @@ export default class RegisterPage {
   async render() {
     return `
             <section class="container auth-page-container">
-                <h2>Register</h2>
+                <h1>Register</h1>
                 <form id="register-form">
                     <div class="form-group">
                         <label for="name">Name</label>

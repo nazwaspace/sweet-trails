@@ -9,7 +9,7 @@ export default class LikedPage {
   async render() {
     return `
       <section class="container">
-        <h2 class="container-title">Your Liked Stories</h2> <div class="form-group" style="max-width: 600px; margin: 20px auto;">
+        <h1 class="container-title">Your Liked Stories</h1> <div class="form-group" style="max-width: 600px; margin: 20px auto;">
           <label for="search-bar">Search by Name</label>
           <input type="search" id="search-bar" placeholder="Type a name to filter...">
         </div>
@@ -66,7 +66,7 @@ export default class LikedPage {
 
       storyItem.innerHTML = `
         <img src="${story.photoUrl}" alt="Story photo by ${story.name}">
-        <h3>${story.name}</h3>
+        <h2>${story.name}</h2>
         <p>${story.description.substring(0, 100)}...</p>
         <small>Created on: ${showFormattedDate(story.createdAt)}</small>
         <button class="remove-like-button" data-id="${story.id}" aria-label="Remove ${story.name} from likes"> Unlike 💔

@@ -1,6 +1,6 @@
 # Sweet Trails - Web App
 
-Proyek ini adalah aplikasi web untuk berbagi cerita berbasis lokasi, dibangun menggunakan webpack, Babel, dan berbagai Web API.
+Sweet Trails 🍭: Aplikasi web PWA untuk berbagi cerita lokasi. Fitur: Tampil/tambah story di peta interaktif (Leaflet.js), bisa di-install, mode offline (via Service Worker), dan fitur 'Likes' (IndexedDB).
 
 ## Table of Contents
 

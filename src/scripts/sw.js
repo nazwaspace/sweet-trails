@@ -60,7 +60,19 @@ registerRoute(
 );
 
 self.addEventListener('push', (event) => {
-  const data = event.data.json();
+  let data;
+  try {
+    data = event.data.json();
+  } catch (error) {
+    data = {
+      title: 'New Notification',
+      body: event.data.text(),
+      options: {
+        url: '/'
+      }
+    };
+  }
+
   const options = {
     body: data.body,
     icon: 'icons/icon-192x192.png',
@@ -69,7 +81,7 @@ self.addEventListener('push', (event) => {
       url: data.options.url,
     },
     actions: [
-      { action: 'open_story', title: 'Open Story' },
+      { action: 'open_story', title: 'Open' },
       { action: 'close', title: 'Close' },
     ],
   };

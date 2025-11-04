@@ -14,7 +14,7 @@ export default class HomePage {
   async render() {
     return `
       <section class="container">
-        <h2 class="container-title">Story List</h2>
+        <h1 class="container-title">Story List</h1>
         <div id="loading-indicator" class="loading" style="display: none;">Loading...</div>
         <div id="error-message" class="error" style="display: none;"></div>
         <div class="home-layout">

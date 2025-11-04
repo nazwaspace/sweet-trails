@@ -13,7 +13,7 @@ export default class AddStoryPage {
   async render() {
     return `
             <section class="container">
-                <h2 class="container-title">Add New Story</h2>
+                <h1 class="container-title">Add New Story</h1>
                 <form id="add-story-form" novalidate>
                     <div class="form-group">
                         <label for="description">Description</label>
@@ -21,7 +21,7 @@ export default class AddStoryPage {
                     </div>
 
                     <div class="form-group">
-                        <label>Picture</label>
+                        <label for="camera-button">Picture</label>
                         <button type="button" id="camera-button" class="secondary">Open Camera</button>
                         <div id="camera-container" style="display: none;">
                             <video id="camera-video" autoplay muted playsinline></video>
@@ -37,9 +37,13 @@ export default class AddStoryPage {
                     </div>
 
                     <div class="form-group">
-                        <label>Location (Click on the Map)</label>
+                        <label for="location-map">Location (Click on the Map)</label>
                         <div id="location-map"></div>
+
+                        <label for="latitude" class="sr-only">Latitude</label>
                         <input type="hidden" id="latitude" readonly>
+
+                        <label for="longitude" class="sr-only">Longitude</label>
                         <input type="hidden" id="longitude" readonly>
                         <p id="location-display">Location has not been selected</p>
                     </div>
