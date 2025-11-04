@@ -3,6 +3,7 @@ import { getActiveRoute } from '../routes/url-parser';
 import AuthService from '../services/auth-service';
 import PushNotificationHelper from '../utils/push-notification-helper';
 import CONFIG from '../config';
+import ApiService from '../services/api-service';
 
 class App {
   #content = null;
