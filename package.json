@@ -5,7 +5,7 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "start-dev": "webpack serve --config webpack.dev.js",
-    "serve": "http-server dist",
+    "serve": "http-server docs -c-1",
     "format": "prettier --write \"src/**/*.{js,css,html}\""
   },
   "keywords": [],

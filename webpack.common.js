@@ -8,10 +8,8 @@ module.exports = {
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: process.env.NODE_ENV === 'production'
-    ? '/sweet-trails/'
-    : '/',
+    path: path.resolve(__dirname, 'docs'),
+    publicPath: 'auto',
     clean: true,
   },
   module: {
@@ -33,15 +31,11 @@ module.exports = {
       patterns: [
         {
           from: path.resolve(__dirname, 'src/public/'),
-          to: path.resolve(__dirname, 'dist/'),
+          to: path.resolve(__dirname, 'docs/'),
         },
         {
           from: path.resolve(__dirname, 'node_modules/leaflet/dist/images'),
-          to: path.resolve(__dirname, 'dist/images/'),
-        },
-        {
-        from: path.resolve(__dirname, 'src/scripts/sw.js'),
-        to: path.resolve(__dirname, 'dist/sw.js'),
+          to: path.resolve(__dirname, 'docs/images/'),
         },
       ],
     }),
