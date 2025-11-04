@@ -100,17 +100,47 @@ class App {
     const handleToggle = async () => {
       const isSubscribed = await PushNotificationHelper.isSubscribed();
       if (isSubscribed) {
+        const subscription = await PushNotificationHelper.getSubscription();
+        if (subscription) {
+          try {
+            const response = await ApiService.unsubscribePush(subscription);
+            const responseJson = await response.json();
+            
+            if (responseJson.error) {
+              throw new Error(responseJson.message);
+            }
+            console.log('Successfully unsubscribed from push server.');
+            
+          } catch (error) {
+            console.error('Failed to send unsubscribe to server:', error);
+          }
+        }
         await PushNotificationHelper.unsubscribe();
         updateButtonState(false);
       } else {
         const subscription = await PushNotificationHelper.subscribe(CONFIG.VAPID_PUBLIC_KEY);
         if (subscription) {
-          updateButtonState(true);
+          try {
+            const response = await ApiService.subscribePush(subscription);
+            const responseJson = await response.json();
+
+            if (responseJson.error) {
+              throw new Error(responseJson.message);
+            }
+            
+            console.log('Successfully subscribed to push server.');
+            updateButtonState(true);
+          } catch (error) {
+            console.error('Failed to send subscription to server:', error);
+            await PushNotificationHelper.unsubscribe();
+            updateButtonState(false);
+            alert('Failed to subscribe. Please try again.');
+          }
         }
       }
     };
 
-    if ('serviceWorker' in navigator && 'PushManager' in window) {
+    if (navigator.serviceWorker && 'PushManager' in window) {
       PushNotificationHelper.isSubscribed().then(updateButtonState);
     }
 

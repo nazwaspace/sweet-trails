@@ -60,7 +60,20 @@ const PushNotificationHelper = {
     const registration = await navigator.serviceWorker.ready;
     const subscription = await registration.pushManager.getSubscription();
     return subscription !== null;
-  }
+  },
+
+  async getSubscription() {
+    if (!navigator.serviceWorker || !('PushManager' in window)) {
+      return null;
+    }
+    try {
+      const registration = await navigator.serviceWorker.ready;
+      return registration.pushManager.getSubscription();
+    } catch (error) {
+      console.error('Failed to get subscription:', error);
+      return null;
+    }
+  },
 };
 
 export default PushNotificationHelper;

@@ -47,6 +47,32 @@ const ApiService = {
 
     return response.json();
   },
+
+  async subscribePush(subscription) {
+    return fetch(CONFIG.BASE_URL + '/notifications/subscribe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${AuthService.getToken()}`,
+      },
+      body: JSON.stringify(subscription),
+    });
+  },
+
+  async unsubscribePush(subscription) {
+    const subscriptionData = {
+      endpoint: subscription.endpoint,
+    };
+
+    return fetch(CONFIG.BASE_URL + '/notifications/subscribe', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${AuthService.getToken()}`,
+      },
+      body: JSON.stringify(subscriptionData),
+    });
+  },
 };
 
 export default ApiService;
