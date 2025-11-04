@@ -49,19 +49,28 @@ const ApiService = {
   },
 
   async subscribePush(subscription) {
+    const subscriptionJson = subscription.toJSON();
+
+    const bodyToSend = {
+      endpoint: subscriptionJson.endpoint,
+      keys: subscriptionJson.keys,
+    };
+
     return fetch(CONFIG.BASE_URL + '/notifications/subscribe', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${AuthService.getToken()}`,
       },
-      body: JSON.stringify(subscription),
+      body: JSON.stringify(bodyToSend),
     });
   },
 
   async unsubscribePush(subscription) {
-    const subscriptionData = {
-      endpoint: subscription.endpoint,
+    const subscriptionJson = subscription.toJSON();
+    
+    const bodyToSend = {
+      endpoint: subscriptionJson.endpoint,
     };
 
     return fetch(CONFIG.BASE_URL + '/notifications/subscribe', {
@@ -70,7 +79,7 @@ const ApiService = {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${AuthService.getToken()}`,
       },
-      body: JSON.stringify(subscriptionData),
+      body: JSON.stringify(bodyToSend),
     });
   },
 };
