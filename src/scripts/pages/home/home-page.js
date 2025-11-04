@@ -69,7 +69,7 @@ export default class HomePage {
       storyItem.setAttribute('aria-label', `See the story ${story.name}`);
 
       storyItem.innerHTML = `
-        <img src="${story.photoUrl}" alt="Story photo by ${story.name}"> <h3>${story.name}</h3>
+        <img src="${story.photoUrl}" alt="Story photo by ${story.name}"> <h2>${story.name}</h2>
         <p>${story.description.substring(0, 100)}...</p>
         <small>Created on: ${showFormattedDate(story.createdAt)}</small>
         <button class="like-button" data-id="${story.id}" aria-label="Add ${story.name} to likes">
