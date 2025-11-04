@@ -60,7 +60,7 @@ registerRoute(
 );
 
 self.addEventListener('push', (event) => {
-  let data;
+  let data = { title: 'Default Title', body: 'Default Message', options: { url: '/' } };
   try {
     data = event.data.json();
   } catch (error) {
@@ -96,7 +96,10 @@ self.addEventListener('notificationclick', (event) => {
 
   const action = event.action;
   if (action === 'open_story') {
-    const urlToOpen = event.notification.data.url || '/';
+    let urlToOpen = event.notification.data.url || 'index.html';
+    if (urlToOpen.startsWith('/')) {
+        urlToOpen = urlToOpen.substring(1);
+    }
     event.waitUntil(
       clients.openWindow(urlToOpen)
     );
