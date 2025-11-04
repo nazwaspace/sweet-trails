@@ -68,7 +68,7 @@ self.addEventListener('push', (event) => {
       title: 'New Notification',
       body: event.data.text(),
       options: {
-        url: '/'
+        url: 'index.html'
       }
     };
   }
